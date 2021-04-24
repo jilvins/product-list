@@ -1,0 +1,17 @@
+.main-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    margin: 20px;
+}
+.card-body{
+    text-align: center;
+    background-color: lightgray;
+}
+
+.product-form{
+    margin: 50px;
+    width: 500px;
+}
