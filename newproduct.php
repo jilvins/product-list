@@ -1,5 +1,6 @@
 <?php
-require("components/db.php");
+require("classes/productscontr.class.php");
+
 
 if($_POST){
     $sku = trim($_POST['sku']);
@@ -11,25 +12,14 @@ if($_POST){
     $width = (float) $_POST['width'];
     $length = (float) $_POST['length'];
     $weight = (float) $_POST['weight'];
-
+      
     try {
-        $sql= "INSERT INTO products(sku, name, price, type, size, height, width, length, weight)
-        VALUES(:sku, :name, :price, :type, :size, :height, :width, :length, :weight)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":sku", $sku);
-        $stmt->bindParam(":name", $name);
-        $stmt->bindParam(":price", $price);
-        $stmt->bindParam(":type", $type);
-        $stmt->bindParam(":size", $size);
-        $stmt->bindParam(":height", $height);
-        $stmt->bindParam(":width", $width);
-        $stmt->bindParam(":length", $length);
-        $stmt->bindParam(":weight", $weight);
+    
+        $addProduct = new ProductsContr();
+        $addProduct -> createProduct($sku, $name, $price, $type, $size, $height, $width, $length, $weight);
         
-
-        $stmt->execute();
-        if($stmt->rowCount()){
-            header("Location: add.php?status=created");
+        if($testnum=1){
+            header("Location:index.php");
             exit();
         }header("Location: add.php?status=fail_create");
         exit();

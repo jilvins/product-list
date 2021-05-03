@@ -1,7 +1,14 @@
-<?php include("components/header.php") ?>
+<?php include("components/header.php")?>
+<?php
+require("classes/productscontr.class.php");
 
+
+
+?>
+<a href="index.php" class="btn btn-primary">Back</a>
+  <button type="submit" class="btn btn-success">Submit</button>
   <div class="main-container">
-      <a href="index.php" class="btn btn-primary">Back</a>
+  
       <?php if (isset($_GET['status']) && $_GET['status'] === "created") : ?>
       <p>"Product has been added"</p>
       <?php endif ?>
@@ -39,33 +46,37 @@
                         <option value="furniture">Furniture</option>
                         </select>
                     </div>
-                    <div class="d-flex flex-row DVD form-control">
+                    <div class="DVD form-control" id="DVD">
+                    <div class="switchable">
                         <label for="size" class="">Size (MB)</label>
                         <input type="text" class="DVD form-control" id="size" name="size">
                     </div>
+                    </div>
                     <br>
-                    <div>
-                    <div class="d-flex flex-row">
+                    <div class="furniture form-control" id="furniture">
+                    <div class="switchable">
                         <label for="height" class="">Height (CM)</label>
                         <input type="text" class="furniture form-control" id="height" name="height">
                     </div>
-                    <div class="d-flex flex-row">
+                    <div class="switchable">
                         <label for="width" class="">Width (CM)</label>
                         <input type="text" class="furniture form-control" id="width" name="width">
                     </div>
-                    <div class="d-flex flex-row">
+                    <div class="switchable">
                         <label for="length" class="">Length (CM)</label>
                         <input type="text" class="furniture form-control" id="length" name="length">
                     </div>
                     </div>
                     <br>
-                    <div class="d-flex flex-row book form-control">
+                    <div class="book form-control" id="book">
+                    <div class="switchable">
                         <label for="weight" class="">Weight (KG)</label>
                         <input type="text" class="book form-control" id="weight" name="weight">
                     </div>
+                    </div>
 
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                
               </form>
           </div>
       </div>

@@ -1,6 +1,8 @@
 .main-container{
     display: flex;
     flex-direction: row;
+    background-color: red !important;
+    color: red !important;
 }
 
 .card {
@@ -14,4 +16,18 @@
 .product-form{
     margin: 50px;
     width: 500px;
+}
+
+.form-control{
+    display: none;
+    color: red;
+}
+
+.switchable{
+    color: red;
+    
+}
+
+.test{
+    color: red;
 }
