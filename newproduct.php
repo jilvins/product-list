@@ -1,17 +1,19 @@
 <?php
 require("classes/productscontr.class.php");
+session_start();
 
 
-if($_POST){
-    $sku = trim($_POST['sku']);
-    $name = trim($_POST['name']);
-    $price = (float) $_POST['price'];
-    $type= trim($_POST['type']);
-    $size = (float) $_POST['size'];
-    $height = (float) $_POST['height'];
-    $width = (float) $_POST['width'];
-    $length = (float) $_POST['length'];
-    $weight = (float) $_POST['weight'];
+if ($_SESSION['session-data']){
+    
+    $sku = trim($_SESSION['session-data']['sku']);
+    $name = trim($_SESSION['session-data']['name']);
+    $price = (float) $_SESSION['session-data']['price'];
+    $type= trim($_SESSION['session-data']['type']);
+    $size = (float) $_SESSION['session-data']['size'];
+    $height = (float) $_SESSION['session-data']['height'];
+    $width = (float) $_SESSION['session-data']['width'];
+    $length = (float) $_SESSION['session-data']['length'];
+    $weight = (float) $_SESSION['session-data']['weight'];
       
     try {
     
@@ -21,14 +23,14 @@ if($_POST){
         if($testnum=1){
             header("Location:index.php");
             exit();
-        }header("Location: add.php?status=fail_create");
+        }header("Location: add.php?status=oth_err");
         exit();
     } catch (Exception $e) {
         echo "Error " . $e->getMessage();
         exit();
     }
 }else{
-    header("Location: add.php?status=fail_create");
+    header("Location: add.php?status=no_post");
     exit();
 }
 
