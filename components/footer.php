@@ -1,4 +1,3 @@
-
 <div class="footer">
 <h4 class="page-info">Junior dev project</h4>
 </div>

@@ -1,16 +1,15 @@
 <?php 
 session_start();
-$con = mysqli_connect("localhost", "root", "", "productlist");
-require("components/db.php");
+require("classes/productscontr.php");
 
 if(isset($_POST['mass_delete'])){
     $all_id = $_POST["deleteid"];
     $extract_id = implode(',' , $all_id);
 
-    $query = "DELETE FROM products WHERE id IN($extract_id)";
-    $query_run = mysqli_query($con, $query);
+    $deleteProduct = new ProductsContr();
+    $deleteProduct -> deleteProduct($extract_id);
 
-    if($query_run){
+    if($deleteProduct){
         $_SESSION['status'] = "Data deleted";
         header('location: index.php');
     }else{

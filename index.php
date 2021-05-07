@@ -1,5 +1,5 @@
 <?php session_start(); 
-require("classes/productsview.class.php");
+require("classes/productsview.php");
 include("components/header.php");
 ?>
 
@@ -20,7 +20,7 @@ include("components/header.php");
   ?>
  
   </div>
-<div class="main-container1">
+<div class="main-container-prod">
 <?php
 
 $productList = new ProductsView();

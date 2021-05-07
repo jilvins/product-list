@@ -2,22 +2,6 @@ body{
     margin: 1em;
 }
 
-
-.main-container1{
-    padding: 1em;
-    display: grid;
-    grid-template-columns: auto  auto auto auto; 
-    grid-gap: 10px;
-    min-height: 70vh;   
-}
-.main-container{
-    padding: 1em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    min-height: 70vh;   
-}
-
 .header{
     display: grid;
     grid-template-columns: auto  14% 14%;
@@ -26,11 +10,6 @@ body{
     margin-bottom: 1em;
     border-bottom: 2px solid gray;
 }
-.form-group{
-    display: grid;
-    grid-template-columns: 10vw  30vw ;
-    grid-gap: 10px;
-}
 .footer{
     text-align: center;
     margin-top: 1em;
@@ -38,24 +17,59 @@ body{
     border-top: 2px solid gray;
 }
 
-.card-body{
-    background-color: lightgrey;
-    text-align: center;
-    margin: 0.5em;
+
+.main-container-prod{
+    //padding: 1em;
+    //display: flex;
+    //flex-wrap: wrap;
+    //flex-direction: row;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    //min-height: 70vh;   
+    
+}
+.main-container-add{
     padding: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 70vh;   
 }
 
-.card-body input {
-  background: green;
-  position: relative;
-  right: 90%;
-  top: 90%;   
+.item1 { grid-area: check; }
+.item2 { grid-area: sku; }
+.item3 { grid-area: name; }
+.item4 { grid-area: price; }
+.item5 { grid-area: dscr; }
+
+.card-body{
+    background-color: grey;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 10% 85%;
+    grid-template-areas:
+    'check sku'
+    'check name'
+    'check price'
+    'check dscr';
+    margin: 1em;
 }
+
+.form-group{
+    display: grid;
+    grid-template-columns: 10vw  30vw ;
+    grid-gap: 10px;
+}
+.form-info{
+    color: darkolivegreen;
+    margin-left: 1em;
+}
+.error{
+    color: red;
+}
+
 .btn {
     margin: 0 20px !important;
     float: right;
 }
-span{
-    color: red;
-    margin-left: 1em;
-}
+

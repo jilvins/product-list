@@ -1,5 +1,5 @@
 <?php
-require("classes/productscontr.class.php");
+require("classes/productscontr.php");
 require("./productvalidator.php");
 include("components/header.php");
 ?>
@@ -26,7 +26,7 @@ if(isset($_POST["Submit"])){
 <a href="index.php" class="btn btn-warning">Cancel</a>
   <button type="submit" class="btn btn-primary" name="Submit">Submit</button>
   </div>
-  <div class="main-container">
+  <div class="main-container-add">
       <div class="product-form border-danger">
           <div class="form-body">
               
@@ -35,19 +35,19 @@ if(isset($_POST["Submit"])){
                         <label for="sku" class="">SKU</label>
                         <input type="text" class="form-control" id="sku" name="sku" 
                         placeholder="enter sku" value="<?php echo $_POST['sku'] ?? ''?>">
-                        <span><?php echo $errors['sku'] ?? '' ?></span>
+                        <span class="error"><?php echo $errors['sku'] ?? '' ?></span>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="">Name</label>
                         <input type="text" class="form-control" id="name" name="name" 
                         placeholder="enter name" value="<?php echo $_POST['name'] ?? ''?>">
-                        <span><?php echo $errors['name'] ?? '' ?></span>
+                        <span class="error"><?php echo $errors['name'] ?? '' ?></span>
                     </div>
                     <div class="form-group ">
                         <label for="price" class="">Price</label>
                         <input type="text" class="form-control" id="price" name="price" 
                         placeholder="enter price" value="<?php echo $_POST['price'] ?? ''?>">
-                        <span><?php echo $errors['price'] ?? '' ?></span>
+                        <span class="error"><?php echo $errors['price'] ?? '' ?></span>
                     </div>
                     <div class="form-group">
                         <label for="type" class="">Type switcher</label>
@@ -57,21 +57,21 @@ if(isset($_POST["Submit"])){
                         <option value="book">Book</option>
                         <option value="furniture">Furniture</option>
                         </select>
-                        <span><?php echo $errors['type'] ?? '' ?></span>
-                        <span><?php echo $errors['size'] ?? '' ?></span>
-                        <span><?php echo $errors['height'] ?? '' ?></span>
-                        <span><?php echo $errors['width'] ?? '' ?></span>
-                        <span><?php echo $errors['length'] ?? '' ?></span>
-                        <span><?php echo $errors['weight'] ?? '' ?></span>
+                        <span class="error"><?php echo $errors['type'] ?? '' ?></span>
+                        <span class="error"><?php echo $errors['size'] ?? '' ?></span>
+                        <span class="error"><?php echo $errors['height'] ?? '' ?></span>
+                        <span class="error"><?php echo $errors['width'] ?? '' ?></span>
+                        <span class="error"><?php echo $errors['length'] ?? '' ?></span>
+                        <span class="error"><?php echo $errors['weight'] ?? '' ?></span>
                     </div>
-                    <div class="switchable" id="DVD">
+                    <div class="switchable form-group" id="DVD">
                         <label for="size" class="">Size (MB)</label>
                         <input type="text" class="" id="size" name="size">
-                        <p>Please, provide size</p>
+                        <span class="form-info">Please, provide size</span>
                         
                     </div>
                    
-                    <div class="switchable" id="furniture">
+                    <div class="switchable form-group" id="furniture">
                     
                         <label for="height" class="">Height (CM)</label>
                         <input type="text" class="" id="height" name="height">
@@ -81,15 +81,15 @@ if(isset($_POST["Submit"])){
                   
                         <label for="length" class="">Length (CM)</label>
                         <input type="text" class="" id="length" name="length">
-                        <p>Please, provide dimensions</p>
+                        <span class="form-info">Please, provide dimensions</span>
                    
                     </div>
                    
-                    <div class="switchable" id="book">
+                    <div class="switchable form-group" id="book">
                 
                         <label for="weight" class="">Weight (KG)</label>
                         <input type="text" class="" id="weight" name="weight">
-                        <p>Please, provide weight</p>
+                        <span class="form-info">Please, provide weight</span>
                  
                     </div>
 

@@ -1,5 +1,5 @@
 <?php
-require("classes/productscontr.class.php");
+require("classes/productscontr.php");
 session_start();
 
 
@@ -20,11 +20,13 @@ if ($_SESSION['session-data']){
         $addProduct = new ProductsContr();
         $addProduct -> createProduct($sku, $name, $price, $type, $size, $height, $width, $length, $weight);
         
-        if($testnum=1){
+        if($addProduct){
             header("Location:index.php");
             exit();
-        }header("Location: add.php?status=oth_err");
-        exit();
+        } else {
+            header("Location: add.php?status=add_error");
+            exit();
+        }
     } catch (Exception $e) {
         echo "Error " . $e->getMessage();
         exit();

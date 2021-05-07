@@ -2,17 +2,32 @@ body {
   margin: 1em;
 }
 
-.main-container1 {
-  padding: 1em;
+.header {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto  auto auto auto;
-      grid-template-columns: auto  auto auto auto;
+  -ms-grid-columns: auto  14% 14%;
+      grid-template-columns: auto  14% 14%;
   grid-gap: 10px;
-  min-height: 70vh;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid gray;
 }
 
-.main-container {
+.footer {
+  text-align: center;
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 2px solid gray;
+}
+
+.main-container-prod {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto auto;
+}
+
+.main-container-add {
   padding: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,15 +41,46 @@ body {
   min-height: 70vh;
 }
 
-.header {
+.item1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 4;
+  -ms-grid-column: 1;
+  grid-area: check;
+}
+
+.item2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: sku;
+}
+
+.item3 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: name;
+}
+
+.item4 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: price;
+}
+
+.item5 {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: dscr;
+}
+
+.card-body {
+  background-color: grey;
+  text-align: center;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto  14% 14%;
-      grid-template-columns: auto  14% 14%;
-  grid-gap: 10px;
-  padding: 0.5em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid gray;
+  -ms-grid-columns: 10% 85%;
+      grid-template-columns: 10% 85%;
+      grid-template-areas: 'check sku' 'check name' 'check price' 'check dscr';
+  margin: 1em;
 }
 
 .form-group {
@@ -45,34 +91,17 @@ body {
   grid-gap: 10px;
 }
 
-.footer {
-  text-align: center;
-  margin-top: 1em;
-  padding-top: 1em;
-  border-top: 2px solid gray;
+.form-info {
+  color: darkolivegreen;
+  margin-left: 1em;
 }
 
-.card-body {
-  background-color: lightgrey;
-  text-align: center;
-  margin: 0.5em;
-  padding: 1em;
-}
-
-.card-body input {
-  background: green;
-  position: relative;
-  right: 90%;
-  top: 90%;
+.error {
+  color: red;
 }
 
 .btn {
   margin: 0 20px !important;
   float: right;
-}
-
-span {
-  color: red;
-  margin-left: 1em;
 }
 /*# sourceMappingURL=style.css.map */
