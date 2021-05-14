@@ -1,5 +1,6 @@
 <?php session_start(); 
-require("classes/productsview.php");
+//require("classes/productsview.php");
+require("classes/scndProdView.php");
 include("components/header.php");
 ?>
 
@@ -23,10 +24,12 @@ include("components/header.php");
 <div class="main-container-prod">
 <?php
 
-$productList = new ProductsView();
-$productList -> showProductsDvd();
-$productList -> showProductsBook();
-$productList -> showProductsFurn();
+$dvd = new ProductDvd();
+$dvd->showProduct();
+$book = new ProductBook();
+$book->showProduct();
+$furniture = new ProductFurniture();
+$furniture->showProduct();
 ?>
 </div>
 </form>
