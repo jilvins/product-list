@@ -3,6 +3,7 @@ require("products.php");
 
 
 abstract class ProductsView extends Products {
+    
     function cardBeginning ($sku, $name, $price) {
     return  '<div class="card-body" 
     <h6 class="card-text item2">' . $sku . '</h6>
@@ -11,12 +12,13 @@ abstract class ProductsView extends Products {
     function cardEnding($id){
     return '<input type="checkbox" class="item1" name="deleteid[]" id="deleteid" value="' . $id . '">
     </div>'; }
-    //abstract function createProductCard($sku, $name, $price, $size, $id);
+    abstract function createProductCard($sku, $name, $price, $id, $atrbb1, $atrb2, $atrb3);
     abstract function showProduct($type);
 }
 
 class ProductDvd extends ProductsView{
-    public function createProductCard($sku, $name, $price, $size, $id){
+    
+    public function createProductCard($sku, $name, $price, $size, $id, $atrb2=null, $atrb3=null){
         $card = $this ->cardBeginning ($sku, $name, $price);
         $card .= '<p class="card-text item5">Size: '. $size . ' mb'.'</p>';
         $card .= $this->cardEnding($id);
@@ -31,7 +33,7 @@ class ProductDvd extends ProductsView{
 }
 
 class ProductBook extends ProductsView{
-    public function createProductCard($sku, $name, $price, $weight, $id){
+    public function createProductCard($sku, $name, $price, $weight, $id, $atrb2=null, $atrb3=null){
         $card = $this ->cardBeginning ($sku, $name, $price);
         $card .= '<p class="card-text item5">Weight: '. $weight . ' kg'.'</p>';
         $card .= $this->cardEnding($id);

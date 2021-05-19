@@ -1,11 +1,7 @@
 <?php
-require("classes/productscontr.php");
-require("./productvalidator.php");
+require("classes/productvalidator.php");
 include("components/header.php");
-?>
 
-
-<?php 
 
 if(isset($_POST["Submit"])){
     $validators = [
