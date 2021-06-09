@@ -3,62 +3,41 @@ require("products.php");
 
 
 abstract class ProductsView extends Products {
-    
-    function cardBeginning ($sku, $name, $price) {
-    return  '<div class="card-body" 
-    <h6 class="card-text item2">' . $sku . '</h6>
-    <h5 class="card-text item3">'. $name .'</h5>
-    <p class="card-text" item4>'. $price . ' $'.'</p>'; }
-    function cardEnding($id){
-    return '<input type="checkbox" class="item1" name="deleteid[]" id="deleteid" value="' . $id . '">
-    </div>'; }
-    abstract function createProductCard($sku, $name, $price, $id, $atrbb1, $atrb2, $atrb3);
-    abstract function showProduct($type);
+   
+    public $baseprop1 = 'id';
+    public $baseprop2 = 'sku';
+    public $baseprop3 = 'name';
+    public $baseprop4 = 'price';
+   
+    abstract function showProduct();
 }
 
 class ProductDvd extends ProductsView{
-    
-    public function createProductCard($sku, $name, $price, $size, $id, $atrb2=null, $atrb3=null){
-        $card = $this ->cardBeginning ($sku, $name, $price);
-        $card .= '<p class="card-text item5">Size: '. $size . ' mb'.'</p>';
-        $card .= $this->cardEnding($id);
-        echo $card;
-    }
-    function showProduct($type="DVD"){
-        $results = $this->getProducts($type);
-        foreach($results as $cat) {$this-> 
-        createProductCard($cat['sku'], $cat['name'], $cat['price'], 
-        $cat['size'], $cat['id'] ); }
+        
+    function showProduct(){
+        $property = 'size';   
+        $type = 'DVD';
+        $results = $this->getProduct($this->baseprop1, $this->baseprop2, $this->baseprop3, $this->baseprop4, $property, $type);
+        return $results;
     }
 }
 
 class ProductBook extends ProductsView{
-    public function createProductCard($sku, $name, $price, $weight, $id, $atrb2=null, $atrb3=null){
-        $card = $this ->cardBeginning ($sku, $name, $price);
-        $card .= '<p class="card-text item5">Weight: '. $weight . ' kg'.'</p>';
-        $card .= $this->cardEnding($id);
-        echo $card;
+   
+    function showProduct() {
+        $property = 'weight';
+        $type = 'book';
+        $results = $this->getProduct($this->baseprop1, $this->baseprop2, $this->baseprop3, $this->baseprop4, $property, $type);
+        return $results;
     }
-    function showProduct($type="book") {
-        $results = $this->getProducts($type);
-        foreach($results as $cat) {$this-> 
-            createProductCard($cat['sku'], $cat['name'], 
-            $cat['price'], $cat['weight'], $cat['id'] ); }
-        }
-    }
-
+}
 
 class ProductFurniture extends ProductsView{
-    public function createProductCard($sku, $name, $price, $length, $width, $height, $id){
-        $card = $this ->cardBeginning ($sku, $name, $price);
-        $card .= '<p class="card-text item5">Dimension: '. $length.'x'.$width.'x'.$height . ' cm'.'</p>';
-        $card .= $this->cardEnding($id);
-        echo $card;
+    
+    function showProduct() {
+        $property = 'height, width, length';
+        $type = 'furniture';
+        $results = $this->getProduct($this->baseprop1, $this->baseprop2, $this->baseprop3, $this->baseprop4, $property, $type);
+        return $results;
     }
-    function showProduct($type="furniture") {
-        $results = $this->getProducts($type);
-        foreach($results as $cat) {$this-> 
-            createProductCard($cat['sku'], $cat['name'], 
-            $cat['price'], $cat['length'], $cat['width'], $cat['height'], $cat['id'] ); }
-        }
-    }
+}

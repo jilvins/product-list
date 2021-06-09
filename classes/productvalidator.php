@@ -110,7 +110,7 @@ class DVDValidator extends ProductValidator{
             return $this->errors; 
         }else {
             $_SESSION['session-data'] = $this->data;
-        header ("Location: ./newproduct.php"); exit;}
+        header ("Location: ./prodControl/newDvd.php"); exit;}
     }
 }
 
@@ -132,7 +132,7 @@ class BookValidator extends ProductValidator{
             return $this->errors; 
         }else {
             $_SESSION['session-data'] = $this->data;
-        header ("Location: ./newproduct.php"); exit;}
+        header ("Location: ./prodControl/newBook.php"); exit;}
     }
 }
 class FurnitureValidator extends ProductValidator{
@@ -155,7 +155,7 @@ class FurnitureValidator extends ProductValidator{
             return $this->errors; 
         }else {
             $_SESSION['session-data'] = $this->data;
-        header ("Location: ./newproduct.php"); exit;}
+        header ("Location: ./prodControl/newFurn.php"); exit;}
     }
 }
 class NoneValidator extends ProductValidator{
